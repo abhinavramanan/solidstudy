@@ -32,6 +32,7 @@ use Staudenmeir\EloquentJsonRelations\Relations\BelongsToJson;
  * @property string $user_id
  * @property string $member_id
  * @property bool $is_imported
+ * @property int|null $points Points earned for study time
  * @property Carbon|null $still_active_email_sent_at
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -73,6 +74,7 @@ class TimeEntry extends Model implements AuditableContract
         'billable' => 'bool',
         'tags' => 'array',
         'billable_rate' => 'int',
+        'points' => 'int',
         'is_imported' => 'bool',
         'still_active_email_sent_at' => 'datetime',
     ];
@@ -86,6 +88,7 @@ class TimeEntry extends Model implements AuditableContract
     protected array $computed = [
         'billable_rate',
         'client_id',
+        'points',
     ];
 
     /**
@@ -95,6 +98,7 @@ class TimeEntry extends Model implements AuditableContract
      */
     protected array $auditExclude = [
         'billable_rate',
+        'points',
     ];
 
     public function getBillableRateComputed(): ?int
@@ -105,6 +109,21 @@ class TimeEntry extends Model implements AuditableContract
     public function getClientIdComputed(): ?string
     {
         return $this->project_id === null || $this->project === null ? null : $this->project->client_id;
+    }
+
+    /**
+     * Calculate points based on study time duration.
+     * 1 point per minute of study time.
+     */
+    public function getPointsComputed(): ?int
+    {
+        $duration = $this->getDuration();
+        if ($duration === null) {
+            return null;
+        }
+
+        // Calculate points: 1 point per minute of study time
+        return $duration->minutes + ($duration->hours * 60);
     }
 
     /**

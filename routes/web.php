@@ -32,9 +32,13 @@ Route::middleware([
 ])->group(function (): void {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
-    Route::get('/time', function () {
-        return Inertia::render('Time');
-    })->name('time');
+    Route::get('/study', function () {
+        return Inertia::render('Study');
+    })->name('study');
+
+    Route::get('/breaks', function () {
+        return Inertia::render('Breaks');
+    })->name('breaks');
 
     Route::get('/reporting', function () {
         return Inertia::render('Reporting');

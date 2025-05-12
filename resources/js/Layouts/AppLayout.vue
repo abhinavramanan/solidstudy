@@ -17,6 +17,7 @@ import {
     XMarkIcon,
     DocumentTextIcon
 } from '@heroicons/vue/20/solid';
+import { CoffeeIcon } from '@heroicons/vue/24/outline';
 import NavigationSidebarItem from '@/Components/NavigationSidebarItem.vue';
 import UserSettingsIcon from '@/Components/UserSettingsIcon.vue';
 import MainContainer from '@/packages/ui/src/MainContainer.vue';
@@ -111,10 +112,15 @@ const page = usePage<{
                                     route().current('dashboard')
                                 "></NavigationSidebarItem>
                             <NavigationSidebarItem
-                                title="Time"
+                                title="Study"
                                 :icon="ClockIcon"
-                                :current="route().current('time')"
-                                :href="route('time')"></NavigationSidebarItem>
+                                :current="route().current('study')"
+                                :href="route('study')"></NavigationSidebarItem>
+                            <NavigationSidebarItem
+                                title="Breaks"
+                                :icon="CoffeeIcon"
+                                :current="route().current('breaks')"
+                                :href="route('breaks')"></NavigationSidebarItem>
                             <NavigationSidebarItem
                                 title="Reporting"
                                 :icon="ChartBarIcon"

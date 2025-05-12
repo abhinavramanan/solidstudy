@@ -20,6 +20,7 @@ use App\Http\Controllers\Api\V1\TimeEntryController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\UserMembershipController;
 use App\Http\Controllers\Api\V1\UserTimeEntryController;
+use App\Http\Controllers\BreakController;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -170,6 +171,15 @@ Route::prefix('v1')->name('v1.')->group(static function (): void {
         // Export routes
         Route::name('export.')->prefix('/organizations/{organization}')->group(static function (): void {
             Route::post('/export', [ExportController::class, 'export'])->name('export');
+        });
+
+        // Break routes
+        Route::name('breaks.')->prefix('/organizations/{organization}')->group(static function (): void {
+            Route::get('/breaks', [BreakController::class, 'index'])->name('index');
+            Route::get('/breaks/redeemed', [BreakController::class, 'redeemed'])->name('redeemed');
+            Route::post('/breaks', [BreakController::class, 'store'])->name('store')->middleware('check-organization-blocked');
+            Route::post('/breaks/{break}/redeem', [BreakController::class, 'redeem'])->name('redeem')->middleware('check-organization-blocked');
+            Route::get('/points', [BreakController::class, 'points'])->name('points');
         });
     });
 

@@ -1,24 +1,26 @@
-# solidtime - The modern Open-Source Time Tracker
+# SolidStudy - Study Time Tracking with Points System
 
 [![GitHub License](https://img.shields.io/github/license/solidtime-io/solidtime?style=flat-square)](https://github.com/solidtime-io/solidtime/blob/main/LICENSE.md)
 [![Codecov](https://img.shields.io/codecov/c/github/solidtime-io/solidtime?style=flat-square&logo=codecov)](https://codecov.io/gh/solidtime-io/solidtime)
 ![GitHub Actions Unit Tests Status](https://img.shields.io/github/actions/workflow/status/solidtime-io/solidtime/phpunit.yml?style=flat-square)
 ![PHPStan badge](https://img.shields.io/badge/PHPStan-Level_7-blue?style=flat-square&color=blue)
 
-![Screenshot of the solidtime application with header: solidtime - The modern Open-Source Time Tracker](docs/solidtime-banner.png "solidtime Banner")
+![Screenshot of the SolidStudy application](docs/solidtime-banner.png "SolidStudy Banner")
 
-solidtime is a modern open-source time tracking application for Freelancers and Agencies.
+SolidStudy is a modern open-source study time tracking application that helps you stay motivated by rewarding your study time with points that can be redeemed for breaks.
 
 ## Features
 
- - Time tracking: Track your time with a modern and easy-to-use interface
- - Projects: Create and manage projects and assign project members
- - Tasks: Create and manage tasks and assign tasks to projects
- - Clients: Create and manage clients and assign clients to projects
- - Billable rates: Set billable rates for projects, project members, organization members and organizations 
- - Multiple organizations: Create and manage multiple organizations with one account
- - Roles and permissions: Create and manage organizations
- - Import: Import your time tracking data from other time tracking applications (Supported: Toggl, Clockify, Timeentry CSV)
+ - Study tracking: Track your study time with a modern and easy-to-use interface
+ - Points system: Earn points for every minute you study
+ - Break management: Create custom breaks with different durations and point costs
+ - Break redemption: Redeem your earned points for breaks
+ - Projects: Organize your study sessions by projects
+ - Tasks: Create and manage tasks within your study projects
+ - Tags: Categorize your study sessions with tags
+ - Multiple organizations: Create and manage multiple study groups with one account
+ - Roles and permissions: Manage access to your study groups
+ - Import: Import your study data from other time tracking applications
 
 ## Self Hosting
 
